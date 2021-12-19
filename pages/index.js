@@ -1,12 +1,14 @@
 import Head from "next/head";
 import Image from "next/image";
-import styles from "../styles/Home.module.css";
 import Header from "../components/Header";
 import Banner from "../components/Banner";
+import { Carousel } from 'react-responsive-carousel';
+import ProductFeed from "../components/ProductFeed";
 
-export default function Home() {
+export default function Home({products}) {
   return (
-    <div className={styles.container}>
+
+    <div className="bg-gray-100 ">
       <Head>
         <title>Amazon Clone</title>
         <meta name="description" content="Just a small Next.js Project" />
@@ -14,12 +16,24 @@ export default function Home() {
       </Head>
 
       <Header />
-      <main className= 'max-screen-2xl mx-auto'>
+      <main className= 'max-w-screen-2xl mx-auto'>
          {/*banner*/}
          <Banner/>
 
          {/*feeds*/}
+
+      <ProductFeed products={products}/> 
+      
       </main>
     </div>
   );
+}
+
+export async function getServerSideProps(context) {
+  const products= await fetch('https://fakestoreapi.com/products').then(
+    (res) => res.json()
+  );
+  return{props:
+   { products }
+  }
 }

@@ -7,11 +7,11 @@ const checkout = () => {
       <Header />
 
       <main className='lg:flex max-w-screen-2x1 mx-auto'>
-        <div>
+        <div className='flex-grow m-5'>
           <Image src='/Amazon-Prime-Day.jpeg' width={1450} height={280} />
-
-          <div className='flex flex-col p-5 space-y-10 bg-white'>
-            <h1 className='text-5xl border-b pb-7'>
+          {/*empty Basket */}
+          <div className='flex flex-col p-5 space-y-10'>
+            <h1 className='text-5xl border-b pb-6'>
               {' '}
               Your Amazon cart is empty{' '}
             </h1>

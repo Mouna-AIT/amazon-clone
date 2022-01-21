@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import Router from 'next/router'
+import { useRouter } from 'next/router'
 import {
   MenuIcon,
   SearchIcon,
@@ -7,6 +7,7 @@ import {
 } from '@heroicons/react/outline'
 
 function Header() {
+  const router = useRouter()
   return (
     <header>
       {/*top nav */}
@@ -42,7 +43,7 @@ function Header() {
             <p className='font-extrabold md:text-sm'>&amp; orders</p>
           </div>
           <div
-            onClick={() => Router.push('/checkout')}
+            onClick={() => router.push('/checkout')}
             className='relative link flex items-center'
           >
             <span className='absolute top-0 right-0 md:right-10 h-4 w-4 bg-amber-500 text-center rounded-full text-black font-bold'>
